@@ -1,8 +1,8 @@
 const defaultState = {
-  rockets = []
+  rockets: []
 }
 
-reduce = (state = defaultState, action) => {
+const reducer = (state = defaultState, action) => {
   switch (action.type) {
     case 'ADD_ROCKET': 
     return {
