@@ -1,23 +1,37 @@
 import { data } from '../mockApi'
 import React from "react";
-import { getData } from "./ApiRequest";
+
 import store from "../config/store";
+import { getData } from "./ApiRequest"
 
-describe("get data", () => {
+import { shallow } from 'enzyme';
 
-  test("can connect to JSON and add to state", async () => {
+import App from '../App';
 
-    jest.spyOn(window, "fetch").mockImplementation(() => {
-      const fetchResponse = {
-        json: () => Promise.resolve(fetchResponse),
-      };
-      return Promise.resolve(fetchResponse);
+describe('ExampleComponent', () => {
+  it('fetches data from server when server returns a successful response', done => { // 1
+    const mockSuccessResponse = {data};
+    const mockJsonPromise = Promise.resolve(mockSuccessResponse); // 2
+    const mockFetchPromise = Promise.resolve({ // 3
+      json: () => mockJsonPromise,
     });
+    jest.spyOn(global, 'fetch').mockImplementation(() => mockFetchPromise); // 4
+    
 
-    getData().then(console.log(store.getState().data))
+    getData()
+                            
+    expect(global.fetch).toHaveBeenCalledTimes(1);
+    expect(global.fetch).toHaveBeenCalledWith('https://api.spacexdata.com/v3/rockets');
 
-    setTimeout(function (){
-        expect(store.getState().rockets).toBe(data);
-      }, 100)
+    process.nextTick(() => { // 6
+        
+        expect(store.getState().data.loaded).toEqual(true)
+        expect(store.getState().data.rockets["data"]).toEqual(data)
+  
+        global.fetch.mockClear(); // 7
+        done(); // 8
+      });
+
+
   });
 });

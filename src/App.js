@@ -1,8 +1,7 @@
 import React from 'react';
 import './App.css';
-import store from './config/store'
 import { connect } from "react-redux";
-import {getData} from './ApiRequest/ApiRequest'
+import { getData } from './ApiRequest/ApiRequest'
 
 function App(props) {
 
