@@ -1,16 +1,16 @@
 const defaultState = {
-  rockets: []
+  rockets: [],
+  loaded: false
 }
 
-const reducer = (state = defaultState, action) => {
+const rocketReducer = (state = defaultState, action) => {
   switch (action.type) {
-    case 'ADD_ROCKET': 
+    case 'ADD_ROCKETS': 
     return {
-      ...state,
-      rockets: action.payload
+      ...action.payload
     }
     default: return state
   }
 }
 
-export default reducer
+export default rocketReducer

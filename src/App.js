@@ -1,33 +1,41 @@
 import React from 'react';
 import './App.css';
 import store from './config/store'
+import { connect } from "react-redux";
 
-function App() {
+function App(props) {
 
-  const getData = (url) => {
-    fetch (url)
+  const getData = () => {
+    fetch ('https://api.spacexdata.com/v3/rockets')
       .then((res) => res.json())
       .then((result) => {
         store.dispatch ({
           type: 'ADD_ROCKETS',
           payload: {
-            rockets: result
+            rockets: result,
+            loaded: true
           }
         })
       })
   }
-  
-  const url = 'https://api.spacexdata.com/v3/rockets'
 
-  getData(url)
+  getData()
 
-  return (
-    <div>
-      Test
-    </div>
-  );
+  if(props.rockets.loaded === false) {
+    return (<div>{console.log("no rockets")}Loading...</div>)
+  } else {
+    return (<div>
+        {props.rockets.rockets[0].rocket_name}
+    </div>)
+  }
 
- 
 }
 
-export default App;
+
+  function mapStateToProps(state) {
+    return {
+      rockets: state,
+    };
+  }
+
+export default connect(mapStateToProps)(App);
