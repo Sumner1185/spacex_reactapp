@@ -1,18 +1,29 @@
 import React from 'react'
 import Rocket from '../rocket/rocket'
-
-const loopThroughRockets = (props) => {
-  props.forEach(function(i) {
-   return (<Rocket id={i.id} name={i.rocket_name} />)
-  })
-}
+import { connect } from "react-redux";
 
 function listRockets(props) {
+
+  var array = []
+
+  function loopThroughRockets() {
+    for(let i = 0; i < props.data.length; i++) {
+      array.push(<Rocket key={i} id={props.data[i].id} name={props.data[i].rocket_name} image={props.data[i].flickr_images[0]} />)
+    }
+    return array
+  }
+
   return (
     <div>
-      { loopThroughRockets(props) }
+      {loopThroughRockets()}
     </div>
   )
 }
 
-export default listRockets
+function mapStateToProps(state) {
+  return {
+    data: state.data.rockets,
+  };
+}
+
+export default connect(mapStateToProps)(listRockets);

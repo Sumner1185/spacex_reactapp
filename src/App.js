@@ -2,7 +2,7 @@ import React from 'react';
 import './App.css';
 import { connect } from "react-redux";
 import { getData } from './ApiRequest/ApiRequest'
-import listRockets from './components/listRockets/listRockets'
+import ListRockets from './components/listRockets/listRockets'
 
 function App(props) {
 
@@ -12,7 +12,7 @@ function App(props) {
     return (<div>Loading...</div>)
   } else {
     return (<div>
-        { listRockets(props.data.rockets) }
+        <ListRockets/>
     </div>)
   }
 }

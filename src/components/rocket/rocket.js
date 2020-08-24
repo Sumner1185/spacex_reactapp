@@ -1,11 +1,13 @@
 import React from 'react'
 
-const rocket = ({id, name}) => {
-  return (
+const Rocket = ({id, name, image}) => {
+  return (<div>
+    <img src={image} />
     <div>
       { name }
+    </div>
     </div>
   )
 }
 
-export default rocket
+export default Rocket
