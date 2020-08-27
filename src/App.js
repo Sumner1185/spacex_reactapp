@@ -11,7 +11,7 @@ function App(props) {
   if(props.data.loaded === false) {
     return (<div>Loading...</div>)
   } else {
-    return (<div>
+    return (<div className='app-container'>
         <ListRockets/>
     </div>)
   }

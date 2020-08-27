@@ -1,6 +1,7 @@
 import React from 'react'
 import Rocket from '../rocket/rocket'
 import { connect } from "react-redux";
+import './listRockets.css'
 
 function listRockets(props) {
 
@@ -8,13 +9,13 @@ function listRockets(props) {
 
   function loopThroughRockets() {
     for(let i = 0; i < props.data.length; i++) {
-      array.push(<Rocket key={i} id={props.data[i].id} name={props.data[i].rocket_name} image={props.data[i].flickr_images[0]} />)
+      array.push(<div className='rocket-item'><Rocket key={i} id={props.data[i].id} name={props.data[i].rocket_name} image={props.data[i].flickr_images[0]} /></div>)
     }
     return array
   }
 
   return (
-    <div>
+    <div className='rockets-list'>
       {loopThroughRockets()}
     </div>
   )

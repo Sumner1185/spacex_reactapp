@@ -1,0 +1,12 @@
+.rockets-list {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    width: 80%;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.rocket-item {
+    display: inline-grid;
+    text-align: center;
+}
