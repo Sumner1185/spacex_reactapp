@@ -8,7 +8,8 @@ export function getData() {
           type: 'ADD_ROCKETS',
           payload: {
             rockets: result,
-            loaded: true
+            loaded: true,
+            rocketDesc: null
           }
         })
       })

@@ -1,6 +1,7 @@
 const defaultState = {
   rockets: [],
-  loaded: false
+  loaded: false,
+  rocketDesc: false
 }
 
 const rocketReducer = (state = defaultState, action) => {
@@ -9,6 +10,12 @@ const rocketReducer = (state = defaultState, action) => {
     return {
       ...action.payload
     }
+    // case 'CHANGE_DESC': 
+    // return {
+    //   rockets: state.rockets,
+    //   loaded: state.loaded,
+    //   rocketDesc: action
+    // }
     default: return state
   }
 }
