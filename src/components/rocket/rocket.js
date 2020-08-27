@@ -1,11 +1,12 @@
 import React from 'react'
+import './rocket.css'
 
 const Rocket = ({id, name, image}) => {
   return (<div>
-    <img src={image} alt={'Rocket image' + id }/>
-    <div>
+    <div className='rocket-name'>
       { name }
     </div>
+    <img src={image} alt={'Rocket image' + id } className='rocket-image'/>
     </div>
   )
 }

@@ -1,0 +1,10 @@
+.rocket-image {
+    max-width: 300px;
+    height: auto;
+}
+
+.rocket-name {
+    max-width: 300px;
+    text-align: center;
+    font-size: larger;
+}
