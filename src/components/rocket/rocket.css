@@ -4,6 +4,17 @@
     cursor: pointer;
 }
 
+.rocket-block:hover {
+    transform: scale(1.2);
+      opacity: .75;
+    }
+
+.rocket-block {
+    transition: 
+        transform 750ms cubic-bezier(.5, 0, .5, 1),
+        opacity 250ms linear;
+}
+
 .rocket-name {
     max-width: 300px;
     text-align: center;

@@ -17,9 +17,11 @@ function listRockets(props) {
   }
 
   return (
+    <div>
     <div className='rockets-list'>
           {loopThroughRockets()}
-      <span>{ props.data.rocketDesc }</span>
+    </div>
+    <div className='description'>{ props.data.rocketDesc }</div>
     </div>
   )
 }

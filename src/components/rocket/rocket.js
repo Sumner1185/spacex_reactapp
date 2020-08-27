@@ -12,7 +12,7 @@ const Rocket = ({id, name, image, desc}) => {
     });
   }
 
-  return (<div>
+  return (<div className='rocket-block'>
     <div className='rocket-name'>
       { name }
     </div>
