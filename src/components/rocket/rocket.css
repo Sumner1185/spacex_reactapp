@@ -1,6 +1,7 @@
 .rocket-image {
     width: 300px;
     height: 200px;
+    cursor: pointer;
 }
 
 .rocket-name {

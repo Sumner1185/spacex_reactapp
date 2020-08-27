@@ -4,9 +4,9 @@ import { connect } from "react-redux";
 import { getData } from './ApiRequest/ApiRequest'
 import ListRockets from './components/listRockets/listRockets'
 
-function App(props) {
+getData()
 
-  getData()
+function App(props) {
 
   if(props.data.loaded === false) {
     return (<div>Loading...</div>)
