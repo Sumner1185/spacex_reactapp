@@ -1,12 +1,7 @@
 import { data } from '../mockApi'
-import React from "react";
-
 import store from "../config/store";
 import { getData } from "./ApiRequest"
 
-import { shallow } from 'enzyme';
-
-import App from '../App';
 
 describe('ExampleComponent', () => {
   it('fetches data from server when server returns a successful response', done => { // 1
