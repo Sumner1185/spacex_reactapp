@@ -1,4 +1,4 @@
-export const data = [
+export const rockets = [
     {
         "id": 1,
         "active": false,

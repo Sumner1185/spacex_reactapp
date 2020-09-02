@@ -1,11 +1,11 @@
-import { data } from '../mockApi'
+import { rockets } from '../mockApi'
 import store from "../config/store";
 import { getData } from "./ApiRequest"
 
 
 describe('ExampleComponent', () => {
   it('fetches data from server when server returns a successful response', done => { // 1
-    const mockSuccessResponse = {data};
+    const mockSuccessResponse = {rockets};
     const mockJsonPromise = Promise.resolve(mockSuccessResponse); // 2
     const mockFetchPromise = Promise.resolve({ // 3
       json: () => mockJsonPromise,
@@ -21,7 +21,7 @@ describe('ExampleComponent', () => {
     process.nextTick(() => { // 6
         
         expect(store.getState().data.loaded).toEqual(true)
-        expect(store.getState().data.rockets["data"]).toEqual(data)
+        expect(store.getState().data.rockets["rockets"]).toEqual(rockets)
   
         global.fetch.mockClear(); // 7
         done(); // 8
